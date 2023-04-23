@@ -9,7 +9,7 @@ import (
 )
 
 var host = "https://localhost:8080"
-var studentId = uint(999)
+var studentId = uint32(999)
 var disciplineId = 123
 
 func TestClient_GetStudentDisciplines(t *testing.T) {

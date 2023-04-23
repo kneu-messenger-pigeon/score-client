@@ -11,20 +11,20 @@ import (
 const Version = "/v1"
 
 type ClientInterface interface {
-	GetStudentDisciplines(studentId uint) (response scoreApi.DisciplineScoreResults, err error)
-	GetStudentDiscipline(studentId uint, disciplineId int) (response scoreApi.DisciplineScoreResult, err error)
+	GetStudentDisciplines(studentId uint32) (response scoreApi.DisciplineScoreResults, err error)
+	GetStudentDiscipline(studentId uint32, disciplineId int) (response scoreApi.DisciplineScoreResult, err error)
 }
 
 type Client struct {
 	Host string
 }
 
-func (client *Client) GetStudentDisciplines(studentId uint) (response scoreApi.DisciplineScoreResults, err error) {
+func (client *Client) GetStudentDisciplines(studentId uint32) (response scoreApi.DisciplineScoreResults, err error) {
 	err = client.doRequest(fmt.Sprintf("/students/%d/disciplines", studentId), &response)
 	return
 }
 
-func (client *Client) GetStudentDiscipline(studentId uint, disciplineId int) (response scoreApi.DisciplineScoreResult, err error) {
+func (client *Client) GetStudentDiscipline(studentId uint32, disciplineId int) (response scoreApi.DisciplineScoreResult, err error) {
 	err = client.doRequest(fmt.Sprintf("/students/%d/disciplines/%d", studentId, disciplineId), &response)
 	return
 }
