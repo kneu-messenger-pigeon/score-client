@@ -10,6 +10,11 @@ import (
 
 const Version = "/v1"
 
+type ClientInterface interface {
+	GetStudentDisciplines(studentId uint) (response scoreApi.DisciplineScoreResults, err error)
+	GetStudentDiscipline(studentId uint, disciplineId int) (response scoreApi.DisciplineScoreResult, err error)
+}
+
 type Client struct {
 	Host string
 }
