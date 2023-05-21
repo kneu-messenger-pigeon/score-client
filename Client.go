@@ -13,6 +13,7 @@ const Version = "/v1"
 type ClientInterface interface {
 	GetStudentDisciplines(studentId uint32) (response scoreApi.DisciplineScoreResults, err error)
 	GetStudentDiscipline(studentId uint32, disciplineId int) (response scoreApi.DisciplineScoreResult, err error)
+	GetStudentScore(studentId uint32, disciplineId int, lessonId int) (response scoreApi.DisciplineScore, err error)
 }
 
 type Client struct {
