@@ -29,6 +29,14 @@ func (client *Client) GetStudentDiscipline(studentId uint32, disciplineId int) (
 	return
 }
 
+func (client *Client) GetStudentScore(studentId uint32, disciplineId int, lessonId int) (response scoreApi.DisciplineScore, err error) {
+	err = client.doRequest(
+		fmt.Sprintf("/students/%d/disciplines/%d/scores/%d", studentId, disciplineId, lessonId),
+		&response,
+	)
+	return
+}
+
 func (client *Client) doRequest(requestUri string, responseInterface any) error {
 	var response *http.Response
 
