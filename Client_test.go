@@ -120,8 +120,8 @@ func TestClient_GetStudentDiscipline(t *testing.T) {
 							LongName:  "Модульний контроль.",
 						},
 					},
-					FirstScore:  4.5,
-					SecondScore: 0,
+					FirstScore:  floatPointer(4.5),
+					SecondScore: nil,
 					IsAbsent:    true,
 				},
 			},
@@ -195,8 +195,8 @@ func TestClient_GetStudentScore(t *testing.T) {
 						LongName:  "Модульний контроль.",
 					},
 				},
-				FirstScore:  4.5,
-				SecondScore: 0,
+				FirstScore:  floatPointer(4.5),
+				SecondScore: nil,
 				IsAbsent:    true,
 			},
 		}
@@ -250,4 +250,8 @@ func TestClient_GetStudentScore(t *testing.T) {
 		assert.Equal(t, "Receive http code: 500", err.Error())
 		assert.Empty(t, actualResult)
 	})
+}
+
+func floatPointer(value float32) *float32 {
+	return &value
 }
