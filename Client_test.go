@@ -57,6 +57,7 @@ func TestClient_GetStudentDisciplines(t *testing.T) {
 		assert.Equal(t, expectedResult, actualResult)
 		assert.NoError(t, err)
 		assert.False(t, gock.HasUnmatchedRequest())
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error api", func(t *testing.T) {
@@ -76,6 +77,7 @@ func TestClient_GetStudentDisciplines(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "API error: Test error description", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error http", func(t *testing.T) {
@@ -92,6 +94,7 @@ func TestClient_GetStudentDisciplines(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "Receive http code: 500", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 }
 
@@ -140,6 +143,7 @@ func TestClient_GetStudentDiscipline(t *testing.T) {
 		assert.Equal(t, expectedResult, actualResult)
 		assert.NoError(t, err)
 		assert.False(t, gock.HasUnmatchedRequest())
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error api", func(t *testing.T) {
@@ -159,6 +163,7 @@ func TestClient_GetStudentDiscipline(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "API error: Test error description", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error http", func(t *testing.T) {
@@ -175,6 +180,7 @@ func TestClient_GetStudentDiscipline(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "Receive http code: 500", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 }
 
@@ -214,6 +220,7 @@ func TestClient_GetStudentScore(t *testing.T) {
 		assert.Equal(t, expectedResult, actualResult)
 		assert.NoError(t, err)
 		assert.False(t, gock.HasUnmatchedRequest())
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error api", func(t *testing.T) {
@@ -233,6 +240,7 @@ func TestClient_GetStudentScore(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "API error: Test error description", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 
 	t.Run("error http", func(t *testing.T) {
@@ -249,6 +257,7 @@ func TestClient_GetStudentScore(t *testing.T) {
 		assert.Error(t, err)
 		assert.Equal(t, "Receive http code: 500", err.Error())
 		assert.Empty(t, actualResult)
+		assert.True(t, gock.IsDone())
 	})
 }
 
